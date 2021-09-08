@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compteur de mots</title>
+</head>
+<body>
+    <h1>Compteur de mots</h1>
+    <form id='form'>
+        <label for="textarea">Tapez votre texte ici :</label><br>
+        <textarea id='textarea' rows="5" cols="33" autofocus>
+        </textarea><br>
+        <input type="submit">
+    </form>
+    <div>
+        <h2 id='mots'></h2>
+        <h2 id='lettres'></h2>
+        <h2 id='lignes'></h2>
+
+    </div>
+
+    <script>
+        
+        const form = document.getElementById("form")
+        
+        form.addEventListener('submit', function count(e) {
+            e.preventDefault()
+            let text = document.getElementById('textarea').value.trim()
+            let mots = document.getElementById('mots')
+            let lettres = document.getElementById('lettres')
+            let lignes = document.getElementById('lignes')
+            let arraymots = text.split(/ |\n/)
+            let stringlettres = text.split(' ').join('')
+            let arraylignes = text.split('\n')
+            
+            
+            console.log(arraymots)
+            console.log(stringlettres)
+            console.log(arraylignes)
+            console.log(text)
+
+            mots.textContent = `Il y a ${arraymots.length} mots`
+            lettres.textContent = `Il y a ${stringlettres.length} lettres`
+            lignes.textContent = `Il y a ${arraylignes.length} lignes`
+            
+        })
+        
+
+
+    </script>
+</body>
+</html>
